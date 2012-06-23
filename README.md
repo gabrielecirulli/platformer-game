@@ -1,9 +1,9 @@
 # Platformer game
 ## Info
-Just an unnamed platformer game made for fun
+Just an unnamed platformer game made for fun using node.js, express and socket.io
 
 ## Setup
-To get it running, run """npm install""" and then """./run"""
+To get it to run, execute `npm install` and then `./run`.
 
 ## License
 Although this will probably never be needed, this software is licensed under the Simplified BSD License:
