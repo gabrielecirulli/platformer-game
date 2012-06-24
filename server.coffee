@@ -1,4 +1,8 @@
 express = require 'express'
+helpers = require './helpers.coffee'
+
+# Variables
+gameName = "Platformer"
 
 # Make server
 app = do express.createServer
@@ -30,4 +34,5 @@ app.listen 3000
 
 # Routes
 app.get '/', (req, res) ->
-	res.render 'index'
+	pageTitle = "playing"
+	res.render 'index', gameName: gameName, pageTitle: pageTitle
