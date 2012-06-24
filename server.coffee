@@ -52,6 +52,21 @@ io = sock.listen app
 
 # Set up socket.io
 io.sockets.on 'connection', (socket) -> 
-	socket.emit 'number', n: 0
+	socket.on 'start', (data) ->
+		socket.set 'going', true, ->
+			socket.get 'number', (err, number) ->
+				if err then number = 0
+				socket.emit 'number', n: number	
+				socket.set 'number', number
+	
+	socket.on 'stop', (data) ->
+		socket.set 'going', false
+
 	socket.on 'number', (data) ->
-		socket.emit 'number', n: data.number + 1
+		socket.get 'going', (err, going) ->
+			if going
+				socket.emit 'number', n: data.n + 1
+				socket.set 'number', data.n + 1
+			else
+				socket.set 'number', data.n
+		
