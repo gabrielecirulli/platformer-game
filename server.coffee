@@ -3,6 +3,8 @@ helpers = require './helpers.coffee'
 
 # Variables
 gameName = "Platformer"
+gamePort = 1337 # A port for testing
+# TODO: development/production environments and configuration
 
 # Make server
 app = do express.createServer
@@ -29,8 +31,8 @@ app.use express.static publicDir
 # Set up view engine
 app.set 'view engine', 'jade'
 
-# Start up the app
-app.listen 3000
+# Start listening on the game port
+app.listen gamePort
 
 # Routes
 app.get '/', (req, res) ->
