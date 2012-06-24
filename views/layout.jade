@@ -5,11 +5,12 @@ html
     link(rel='stylesheet', href="reset.css")
     link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,cyrillic-ext')
     link(rel='stylesheet', href="style.css")
+    script(src='/socket.io/socket.io.js')
     script(src='main.js')
   body
     header
       h1.gameName= gameName
       h2.pageTitle 
         span - 
-        span=pageTitle
+        span= pageTitle
     section#container(role='main')!= body
