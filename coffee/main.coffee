@@ -10,3 +10,6 @@ $(document).ready ->
 	
 	$('#stop').click ->
 		socket.emit 'stop'
+
+	$('#reset').click ->
+		socket.emit 'reset'

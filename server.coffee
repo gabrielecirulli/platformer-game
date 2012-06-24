@@ -62,11 +62,17 @@ io.sockets.on 'connection', (socket) ->
 	socket.on 'stop', (data) ->
 		socket.set 'going', false
 
+	socket.on 'reset', (data) ->
+		socket.set 'going', false
+		socket.emit 'number', n: 0
+		socket.set 'number', 0
+
 	socket.on 'number', (data) ->
 		socket.get 'going', (err, going) ->
 			if going
-				socket.emit 'number', n: data.n + 1
-				socket.set 'number', data.n + 1
+				socket.emit 'number', n: data.n
+				socket.set 'number', data.n
 			else
 				socket.set 'number', data.n
 		
+
